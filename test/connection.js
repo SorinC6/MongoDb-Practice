@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 //connect to mongoDb
 mongoose.connect("mongodb://localhost/testare");
 
