@@ -16,3 +16,11 @@ before(done => {
       console.log("Connection Error ", error);
     });
 });
+
+//Drop the characters colection before each test
+beforeEach(done => {
+  //drop the collection
+  mongoose.connection.collections.charcollections.drop().then(() => {
+    done();
+  });
+});

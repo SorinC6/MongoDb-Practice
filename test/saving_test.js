@@ -7,7 +7,7 @@ describe("Saving records", () => {
   //Create tests
   it("Saves a record to database", done => {
     let char = new CharCollection({
-      name: "Luke"
+      name: "Luk"
     });
     char.save().then(() => {
       assert(char.isNew === false);
