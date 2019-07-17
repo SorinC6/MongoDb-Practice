@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
 
+mongoose.Promise = global.Promise;
 
-//connect to mongoDb
-mongoose.connect("mongodb://localhost/testare");
+//connect to the database before the test run
+before(done => {
+  //connect to mongoDb
+  mongoose.connect("mongodb://localhost/testare");
 
-mongoose.connection
-  .once("open", () => {
-    console.log("Connection Working yeee! ready to rock ");
-  })
-  .on("error", error => {
-    console.log("Connection Error ", error);
-  });
+  mongoose.connection
+    .once("open", () => {
+      console.log("Connection Working yeee! ready to rock ");
+      done();
+    })
+    .on("error", error => {
+      console.log("Connection Error ", error);
+    });
+});
