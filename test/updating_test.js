@@ -7,7 +7,8 @@ describe("Updating Record", () => {
   //Create tests
   beforeEach(done => {
     char = new CharCollection({
-      name: "Ion"
+      name: "Ion",
+      weight: 67
     });
     char.save().then(() => {
       done();
@@ -22,5 +23,14 @@ describe("Updating Record", () => {
         });
       }
     );
+  });
+
+  it("Increments the weight by 1 from database", done => {
+    CharCollection.update({}, { $inc: { weight: 1 } }).then(() => {
+      CharCollection.findOne({ name: "Ion" }).then(result => {
+        assert(result.weight === 68);
+        done();
+      });
+    });
   });
 });
