@@ -19,6 +19,6 @@
   "homepage": "https://github.com/SorinC6/MongoDb-Practice#readme",
   "dependencies": {
     "mocha": "^6.1.4",
-    "mongoose": "^5.6.4"
+    "mongoose": "^5.7.5"
   }
 }
